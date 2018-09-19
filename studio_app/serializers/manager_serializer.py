@@ -4,4 +4,4 @@ from rest_framework import serializers
 class ManagerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Manager
-        fields = '__all__'
+        fields = ('first_name', 'last_name', 'created', 'street_address', 'city', 'state', 'zipcode', 'id')

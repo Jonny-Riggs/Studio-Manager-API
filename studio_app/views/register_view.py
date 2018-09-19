@@ -26,6 +26,8 @@ def register_user(request):
   # # make new customer for that user
   new_manager = Manager.objects.create(
       user=new_user,
+      first_name=req_body['first_name'],
+      last_name=req_body['last_name'],
       street_address=req_body['street'],
       city=req_body['city'],
       state=req_body['state'],

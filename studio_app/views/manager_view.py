@@ -10,3 +10,9 @@ class ManagerViewSet(viewsets.ModelViewSet):
     queryset = Manager.objects.all()
     serializer_class = ManagerSerializer
 
+    # def list(self, request):
+    #     profile = Manager.objects.filter(Manager__user=self.request.user)
+    #     valid_profile = get_object_or_404(profile, user=self.request.user)
+    #     serializer = ManagerSerializer(valid_profile, context={'request': request})
+    #     return Response(serializer.data)
+

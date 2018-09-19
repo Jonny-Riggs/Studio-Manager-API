@@ -18,17 +18,17 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
+from django.views.static import serve
+from django.conf.urls.static import static
 from studio_app.views import *
 
 router = routers.DefaultRouter()
 
-router.register(r'manager', manager_view.ManagerViewSet)
-router.register(r'contact', contact_view.ContactViewSet)
-router.register(r'gear', gear_view.GearViewSet)
-router.register(r'meeting', meeting_view.MeetingViewSet)
-router.register(r'session', session_view.SessionViewSet)
-router.register(r'show', show_view.ShowViewSet)
-router.register(r'user', user_view.UserViewSet)
+router.register(r'manager', manager_view.ManagerViewSet, base_name='manager')
+router.register(r'contact', contact_view.ContactViewSet, base_name='contact')
+router.register(r'gear', gear_view.GearViewSet, base_name='gear')
+router.register(r'meeting', meeting_view.MeetingViewSet, base_name='meeting')
+router.register(r'session', session_view.SessionViewSet, base_name='session')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

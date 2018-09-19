@@ -1,6 +1,8 @@
 from django.db import models
 from studio_app.models import Manager, Gear
 
+from django.contrib.auth.models import User
+
 class Session(models.Model):
     studio_manager = models.ForeignKey(
         Manager,
@@ -10,10 +12,5 @@ class Session(models.Model):
     genre = models.CharField(max_length=100)
     reservation = models.DateTimeField()
     cost = models.IntegerField()
-    reserved_gear = models.ForeignKey(
-        Gear,
-        on_delete=models.CASCADE
-    )
-
     def __str__(self):
         return self.artist

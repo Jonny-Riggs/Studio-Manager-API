@@ -1,18 +1,19 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 from .manager_model import Manager
+
+from django.contrib.auth.models import User
 
 
 class Contact(models.Model):
     studio_manager = models.ForeignKey(
         Manager,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=250)
-    phone = PhoneNumberField(blank=True, help_text='Contact phone number')
-    desc = models.CharField(max_length=250)
+    phone = models.IntegerField()
+    desc = models.CharField(max_length=250, blank=True)
 
 
     def __str__(self):

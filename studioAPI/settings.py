@@ -44,6 +44,25 @@ INSTALLED_APPS = [
     'phonenumber_field',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'PAGE_SIZE': 10
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    'localhost:3000',
+    '127.0.0.1:8080',
+    '127.0.0.1:3000',
+    '127.0.0.1:3001',
+    'localhost:3001',
+)
+
 MIDDLEWARE = [
    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,7 +142,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.path.join(BASE_DIR, 'studio_app/static/')
 
-MEDIA_URL = '/files/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "files")
+MEDIA_ROOT = os.path.join(BASE_DIR, "studio_app/pic_folder")
+MEDIA_URL = '/studio_app/pic_folder/'

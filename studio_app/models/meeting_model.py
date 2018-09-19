@@ -1,6 +1,8 @@
 from django.db import models
 from studio_app.models import Manager
 
+from django.contrib.auth.models import User
+
 
 class Meeting(models.Model):
     studio_manager = models.ForeignKey(

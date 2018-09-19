@@ -3,5 +3,4 @@ from .gear_serializer import GearSerializer
 from .manager_serializer import ManagerSerializer
 from .meeting_serializer import MeetingSerializer
 from .session_serializer import SessionSerializer
-from .show_serializer import ShowSerializer
 from .user_serializer import UserSerializer
